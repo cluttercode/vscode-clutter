@@ -1,0 +1,86 @@
+{
+  "name": "vscode-clutter",
+  "displayName": "clutter",
+  "description": "Clutter [#tag#] syntax highlighting, auto-completion, and more.",
+  "version": "0.0.1",
+  "publisher": "cluttercode",
+  "repository": {
+    "url": "https://github.com/cluttercode/vscode-clutter.git",
+    "type": "git"
+  },
+  "engines": {
+    "vscode": "^1.41.1"
+  },
+  "keywords": [
+    "clutter",
+    "tagging",
+    "backlinks"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "clutter",
+        "aliases": [],
+        "configuration": "./clutter-language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "clutter",
+        "scopeName": "text.clutter.injection",
+        "path": "./syntaxes/clutter.tmLanguage.json",
+        "injectTo": [
+          "source",
+          "text"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "clutter.newTagFromSelection",
+        "title": "Clutter: New Tag From Selection"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "vscodeClutterAllTags",
+          "name": "Clutter: All Tags"
+        }
+      ]
+    }
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint -c .eslintrc.js --ext .ts src",
+    "pretest": "npm run compile",
+    "test": "jest",
+    "vscode:prepublish": "npm run compile",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.10.1",
+    "got": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/got": "^9.6.11",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^11.9.0",
+    "@types/vscode": "^1.42.0",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "babylon": "^6.18.0",
+    "eslint": "^6.8.0",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
+  }
+}
